@@ -882,9 +882,9 @@ class Player extends Character {
         float legSwing = isWalking ? (float)Math.sin(animFrame * Math.PI/2) * 28 : 0;
         float armSwing = isWalking ? (float)-Math.sin(animFrame * Math.PI/2) * 20 : 0;
         
-        Color bodyColor = isPlayer ? new Color(210, 55, 55) : new Color(70, 90, 130);
-        Color limbColor = isPlayer ? new Color(170, 30, 30) : new Color(50, 70, 110);
-        Color headColor = isPlayer ? new Color(220, 70, 70) : new Color(85, 105, 145);
+        Color bodyColor = isPlayer ? new Color(210, 55, 55) : Color.BLACK;
+        Color limbColor = isPlayer ? new Color(170, 30, 30) : Color.BLACK;
+        Color headColor = isPlayer ? new Color(220, 70, 70) : Color.BLACK;
         
         int headY = cy - 100;
         int bodyTop = headY + 24;
@@ -1012,24 +1012,6 @@ class Player extends Character {
         g.setStroke(new BasicStroke(2f));
         int headOffsetX = (isAttacking && comboStep == 2) ? (int)(5 * Math.min(1f, attackFrame/8f)) : 0;
         g.fillOval(cx - 13 + headOffsetX, headY, 26, 26);
-        
-        // Draw eyes
-        g.setColor(isPlayer ? Color.BLACK : new Color(200, 50, 50));
-        g.fillOval(cx - 6 + headOffsetX, headY + 7, 5, 5);
-        g.fillOval(cx + 1 + headOffsetX, headY + 7, 5, 5);
-        
-        // Enemy red eye details
-        if (!isPlayer) {
-            g.setColor(new Color(180, 30, 30));
-            g.setStroke(new BasicStroke(2f));
-            g.drawLine(cx - 8 + headOffsetX, headY + 4, cx - 3 + headOffsetX, headY + 7);
-            g.drawLine(cx + 8 + headOffsetX, headY + 4, cx + 3 + headOffsetX, headY + 7);
-        } else {
-            // Player eye highlights
-            g.setColor(Color.WHITE);
-            g.fillOval(cx - 5 + headOffsetX, headY + 8, 2, 2);
-            g.fillOval(cx + 2 + headOffsetX, headY + 8, 2, 2);
-        }
         
         // Cape/shoulder decoration for player
         if (isPlayer) {
