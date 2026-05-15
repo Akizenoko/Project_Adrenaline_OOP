@@ -882,9 +882,9 @@ class Player extends Character {
         float legSwing = isWalking ? (float)Math.sin(animFrame * Math.PI/2) * 28 : 0;
         float armSwing = isWalking ? (float)-Math.sin(animFrame * Math.PI/2) * 20 : 0;
         
-        Color bodyColor = isPlayer ? new Color(210, 55, 55) : Color.BLACK;
-        Color limbColor = isPlayer ? new Color(170, 30, 30) : Color.BLACK;
-        Color headColor = isPlayer ? new Color(220, 70, 70) : Color.BLACK;
+        Color bodyColor = isPlayer ? new Color(255, 0, 0) : new Color(60, 60, 60);
+        Color limbColor = isPlayer ? new Color(255, 0, 0) : new Color(70, 70, 70);
+        Color headColor = isPlayer ? new Color(255, 0, 0) : new Color(60, 60, 60);
         
         int headY = cy - 100;
         int bodyTop = headY + 24;
